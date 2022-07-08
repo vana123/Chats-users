@@ -7,11 +7,11 @@ import SidebarChatsItem from "../SidebarChatsItem";
 
 const SidebarChats = ({ setUserChat, userChat }) => {
   const [user] = useAuthState(auth);
-
+  
+  //list chat with me
   const refChat = db
     .collection("chats")
     .where("users", "array-contains", user.email);
-
   const [chatsSnapshot] = useCollection(refChat);
 
   return (
@@ -19,7 +19,7 @@ const SidebarChats = ({ setUserChat, userChat }) => {
       {chatsSnapshot?.docs.map((item, index) => (
         <C.Content key={index}>
           <SidebarChatsItem
-            id={item.id}
+            id={item.id}//id chat
             users={item.data().users}
             user={user}
             setUserChat={setUserChat}

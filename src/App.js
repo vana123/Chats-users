@@ -9,7 +9,7 @@ import Loading from "./components/Loading";
 
 const App = () => {
   const [user, loading] = useAuthState(auth);
-  const [userChat, setUserChat] = useState(null);
+  const [userChat, setUserChat] = useState(null); //Object interlocutor
 
   useEffect(() => {
     if (user) {
